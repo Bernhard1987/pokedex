@@ -27,7 +27,6 @@ async function loadPokemon(i) {
 }
 
 function renderPokemonInfo(i) {
-    document.getElementById('showPokemonBackground').classList.remove('dnone');
     let name = currentPokemon['name'];
     document.getElementById('showPokemon').innerHTML = '';
     document.getElementById('showPokemon').innerHTML += `
@@ -52,11 +51,9 @@ function renderPokemonInfo(i) {
             <div class="stats" id="stats">
             </div>
     `;
-
-    // document.getElementById('name').innerHTML = `${name}`;
-
     generateSprites();
     generateStats();
+    document.getElementById('showPokemonBackground').classList.remove('dnone');
 }
 
 function generateSprites() {

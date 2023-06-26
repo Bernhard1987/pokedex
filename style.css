@@ -32,6 +32,28 @@
      margin-top: 0;
  }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin-top: 16px;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
  .dnone {
      display: none !important;
  }
