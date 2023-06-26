@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeDex</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="renderPokemonList()">
+    <div id="pokemonList">
+
+    </div>
+    <div id="showPokemonBackground">
+        <div id="showPokemon" class="dnone">
+        <h1 id="name"></h1>
+        <div class="normalView">
+            <h3>Normal View:</h3>
+            <img src="" alt="" id="currentFront">
+            <img src="" alt="" id="currentBack">
+        </div>
+        <div class="shinyView">
+            <h3>Shiny View:</h3>
+            <img src="" alt="" id="currentFrontShiny">
+            <img src="" alt="" id="currentBackShiny">
+        </div>
+        <div class="stats">
+            <ul id="statsList">
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+</body>
+
+</html>
