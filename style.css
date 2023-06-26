@@ -176,12 +176,18 @@ footer a:hover {
  }
 
  @media (max-width: 480px) {
+    footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
     #showPokemon {
         width: 350px;
     }
 
      .pokemonListItem {
          width: 100%;
+         min-width: 160px;
      }
  }
 
