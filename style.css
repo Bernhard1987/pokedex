@@ -153,8 +153,24 @@
      }
  }
 
- @media (max-width: 450px) {
+ @media (max-width: 480px) {
+    #showPokemon {
+        width: 350px;
+    }
+
      .pokemonListItem {
          width: 100%;
      }
+ }
+
+ @media (max-width: 420px) {
+    #showPokemon {
+        width: 300px;
+    }
+ }
+
+ @media (max-width: 360px) {
+    #showPokemon {
+        width: 250px;
+    }
  }
