@@ -103,14 +103,15 @@
  }
 
  .showPokemonHeadline {
-    display: flex;
-    width: inherit;
-    justify-content: space-between;
+     display: flex;
+     width: inherit;
+     justify-content: space-between;
  }
 
  .showPokemonHeadline h3 {
-    font-size: 36px;
-    text-transform: capitalize;
+     font-size: 36px;
+     text-transform: capitalize;
+     margin-top: 0;
  }
 
  .stats {
@@ -129,4 +130,16 @@
      display: flex;
      flex-direction: column;
      gap: 16px;
+ }
+
+ @media (max-width: 1120px) {
+     #pokemonList {
+         max-width: calc(100% - 40px);
+     }
+ }
+
+ @media (max-width: 450px) {
+    .pokemonListItem {
+        width: 100%;
+    }
  }
