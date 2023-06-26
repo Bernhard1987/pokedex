@@ -35,19 +35,21 @@ function renderPokemonInfo(i) {
                 <h3 id="name">${name}</h3>
                 <h3>#${i}</h3>
             </div>
-            <div class="normalView">
-                <h3>Normal View:</h3>
-                <img src="" alt="Normal Front View" id="currentFront">
-                <img src="" alt="Normal Back View" id="currentBack">
+            <div class="showPokemonImage">
+                <h3>Normal View</h3>
+                <div>
+                    <img src="" alt="Normal Front View" id="currentFront">
+                    <img src="" alt="Normal Back View" id="currentBack">
+                </div>
             </div>
-            <div class="shinyView">
-                <h3>Shiny View:</h3>
-                <img src="" alt="Shiny Front View" id="currentFrontShiny">
-                <img src="" alt="Shiny Back View" id="currentBackShiny">
+            <div class="showPokemonImage">
+                <h3>Shiny View</h3>
+                <div>
+                    <img src="" alt="Shiny Front View" id="currentFrontShiny">
+                    <img src="" alt="Shiny Back View" id="currentBackShiny">
+                </div>
             </div>
-            <div class="stats">
-                <ul id="statsList">
-                </ul>
+            <div class="stats" id="stats">
             </div>
     `;
 
@@ -67,12 +69,15 @@ function generateSprites() {
 
 function generateStats() {
     let stats = currentPokemon['stats'];
-    document.getElementById('statsList').innerHTML = '';
+    document.getElementById('stats').innerHTML = '';
 
     for (let i = 0; i < stats.length; i++) {
         const statusType = stats[i];
-        document.getElementById('statsList').innerHTML += `
-                    <li>${statusType['stat']['name']}: ${statusType['base_stat']}</li>
+        document.getElementById('stats').innerHTML += `
+                <div class="oneStat">
+                    <div>${statusType['stat']['name']}</div>
+                    <div>${statusType['base_stat']}</div>
+                </div>
                 `;
     }
 
