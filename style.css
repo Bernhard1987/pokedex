@@ -122,66 +122,6 @@
      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
  }
-
- .pokemonTypegrass {
-    background-image: linear-gradient(to right, #00b000 0%, #00bd00 100%);
- }
-
- .pokemonTypepoison {
-    background-image: linear-gradient(to right, #61002a 0%, #a13355 100%);
- }
-
- .pokemonTypefire {
-    background-image: linear-gradient(to right, #620000 0%, #d80000 100%);
- }
-
- .pokemonTypeflying {
-    background-image: linear-gradient(to right, #0062ff 0%, #555 100%);
- }
-
- .pokemonTypewater {
-    background-image: linear-gradient(to right, #00f 0%, #0047ff 100%);
- }
-
- .pokemonTypebug {
-    background-image: linear-gradient(to right, #002a00 0%, #006e00 100%);
- }
-
- .pokemonTypenormal {
-    background-image: linear-gradient(to right, #6f6f6f 0%, #959595 100%);
- }
-
- .pokemonTypeelectric {
-    background-image: linear-gradient(to right, #9d9200 0%, #ebb200 100%);
- }
-
- .pokemonTypeground {
-    background-image: linear-gradient(to right, #9d9200 0%, #a56800 100%);
- }
-
- .pokemonTypefairy {
-    background-image: linear-gradient(to right, #ff0085 0%, #ff00d2 100%);
- }
-
- .pokemonTypefighting {
-    background-image: linear-gradient(to right, #a25a00 0%, #d34000 100%);
- }
-
- .pokemonTypepsychic {
-    background-image: linear-gradient(to right, #a1007a 0%, #c800ac 100%);
- }
-
- .pokemonTyperock {
-    background-image: linear-gradient(to right, #7f6d34 0%, #81775d 100%);
- }
-
- .pokemonTypeice {
-    background-image: linear-gradient(to right, #00859d 0%, #00d9ff 100%);
- }
-
- .pokemonTypedragon {
-    background-image: linear-gradient(to right, #00d9ff 0%, #ff7b00 100%);
- }
   
  #showPokemon {
      display: flex;
