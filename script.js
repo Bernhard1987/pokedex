@@ -15,7 +15,11 @@ async function renderPokemonList() {
             <h3>#${i}</h3>
             </div>
             <img src="${sprites['front_default']}">
+            <div class="pokemonTypeContainer" id="pokemonType(${i})"></div>
         </div>`;
+        // let pokemonTypeList = currentPokemon['types'][0]['type']['name'];
+        // console.log(pokemonTypeList);
+        renderPokemonTypes(i);
     }
 }
 
@@ -24,6 +28,21 @@ async function loadPokemon(i) {
     let response = await fetch(url);
     currentPokemon = await response.json();
     renderPokemonInfo(i);
+    console.log(currentPokemon)
+}
+
+function renderPokemonTypes(i) {
+    let pokemonTypeList = currentPokemon['types'];
+
+    for (let j = 0; j < pokemonTypeList.length; j++) {
+        const type = pokemonTypeList[j]['type']['name'];
+
+        document.getElementById(`pokemonType(${i})`).innerHTML += `
+            <div class="pokemonType pokemonType${type}">
+                ${type}
+            </div>
+        `;        
+    }
 }
 
 function renderPokemonInfo(i) {
