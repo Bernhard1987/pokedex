@@ -6,7 +6,7 @@ async function renderPokemonList() {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
-        let sprites = currentPokemon['sprites'];
+        let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
 
         document.getElementById('pokemonList').innerHTML += `
         <div class="pokemonListItem" onclick="loadPokemon(${i})">
@@ -14,11 +14,9 @@ async function renderPokemonList() {
             <h3>${currentPokemon['name']}</h3>
             <h3>#${i}</h3>
             </div>
-            <img src="${sprites['front_default']}">
+            <img src="${officialArtwork['front_default']}">
             <div class="pokemonTypeContainer" id="pokemonType(${i})"></div>
         </div>`;
-        // let pokemonTypeList = currentPokemon['types'][0]['type']['name'];
-        // console.log(pokemonTypeList);
         renderPokemonTypes(i);
     }
 }
