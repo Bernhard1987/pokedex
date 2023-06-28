@@ -122,7 +122,7 @@
      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
  }
-  
+
  #showPokemon {
      display: flex;
      flex-direction: column;
@@ -138,7 +138,7 @@
  }
 
  #showPokemon img {
-     width: 180px;
+     width: 170px;
  }
 
  #showPokemonBackground {
@@ -167,8 +167,17 @@
      margin-top: 0;
  }
 
+ .showOriginalPokemonImage {
+    width: 340px !important;
+ }
+
  .showPokemonImage {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
      width: inherit;
+     aspect-ratio: 1 / 1;
  }
 
  .showPokemonImage div {
@@ -176,17 +185,52 @@
      justify-content: center;
  }
 
+ .showPokemonImage h3 {
+     margin: 0;
+ }
+
+ .showPokemonButton {
+     cursor: pointer;
+     background-color: #222;
+ }
+
+ .showPokemonButton:hover {
+     background-color: #434343;
+ }
+
+ .statsContainer {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #666;
+     width: inherit;
+     height: 340px;
+     border-radius: 16px;
+     padding: inherit;
+ }
+
+ .statSelector {
+     display: flex;
+     justify-content: center;
+     width: inherit;
+     gap: 8px;
+ }
+
  .stats {
      display: flex;
      flex-direction: column;
-     padding: 24px;
+     justify-content: center;
      border-radius: 16px;
-     background-color: rgba(255, 255, 255, 0.075);
+     background-color: rgba(0, 0, 0, 0.5);
      width: inherit;
+     height: 260px;
      font-size: 24px;
      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
      text-transform: uppercase;
      gap: 8px;
+     padding: inherit;
+     padding-bottom: 12px;
  }
 
  .oneStat {

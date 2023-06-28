@@ -39,7 +39,7 @@ function renderPokemonTypes(i) {
             <div class="pokemonType pokemonType${type}">
                 ${type}
             </div>
-        `;        
+        `;
     }
 }
 
@@ -51,30 +51,58 @@ function renderPokemonInfo(i) {
                 <h3 id="name">${name}</h3>
                 <h3>#${i}</h3>
             </div>
-            <div class="showPokemonImage">
+            <div class="statSelector">
+                <div class="pokemonType showPokemonButton" onclick="generateOriginal('default')">default</div>
+                <div class="pokemonType showPokemonButton" onclick="generateOriginal('shiny')">shiny</div>
+                <div class="pokemonType showPokemonButton" onclick="generateSprites()">sprites</div>
+            </div>
+            <div class="showPokemonImage" id="showPokemonImage">
+            </div>
+            <div class="statsContainer">
+                <div class="statSelector">
+                    <div class="pokemonType showPokemonButton">base</div>
+                    <div class="pokemonType showPokemonButton">stats</div>
+                    <div class="pokemonType showPokemonButton">moves</div>
+                </div>
+                <div class="stats" id="stats">
+            </div>
+            </div>
+    `;
+    generateOriginal('default');
+    generateStats();
+    document.getElementById('showPokemonBackground').classList.remove('dnone');
+}
+
+function generateOriginal(selector) {
+    let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
+
+    if (selector == 'shiny') {
+        document.getElementById(`showPokemonImage`).innerHTML = `
+                <img src="${officialArtwork['front_shiny']}" class="showOriginalPokemonImage">
+        `;
+    } else if (selector == 'default') {
+        document.getElementById(`showPokemonImage`).innerHTML = `
+        <img src="${officialArtwork['front_default']}" class="showOriginalPokemonImage">
+        `;
+    }
+}
+
+function generateSprites() {
+    let sprites = currentPokemon['sprites'];
+
+    document.getElementById(`showPokemonImage`).innerHTML = `
                 <h3>Normal View</h3>
                 <div>
                     <img src="" alt="Normal Front View" id="currentFront">
                     <img src="" alt="Normal Back View" id="currentBack">
                 </div>
-            </div>
-            <div class="showPokemonImage">
                 <h3>Shiny View</h3>
                 <div>
                     <img src="" alt="Shiny Front View" id="currentFrontShiny">
                     <img src="" alt="Shiny Back View" id="currentBackShiny">
                 </div>
-            </div>
-            <div class="stats" id="stats">
-            </div>
     `;
-    generateSprites();
-    generateStats();
-    document.getElementById('showPokemonBackground').classList.remove('dnone');
-}
 
-function generateSprites() {
-    let sprites = currentPokemon['sprites'];
     document.getElementById('currentFront').src = sprites['front_default'];
     document.getElementById('currentBack').src = sprites['back_default'];
     document.getElementById('currentFrontShiny').src = sprites['front_shiny'];
