@@ -21,14 +21,6 @@ async function renderPokemonList() {
     }
 }
 
-async function loadPokemon(i) {
-    let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    let response = await fetch(url);
-    currentPokemon = await response.json();
-    renderPokemonInfo(i);
-    console.log(currentPokemon)
-}
-
 function renderPokemonTypes(i) {
     let pokemonTypeList = currentPokemon['types'];
 
@@ -41,6 +33,13 @@ function renderPokemonTypes(i) {
             </div>
         `;
     }
+}
+
+async function loadPokemon(i) {
+    let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    let response = await fetch(url);
+    currentPokemon = await response.json();
+    renderPokemonInfo(i);
 }
 
 function renderPokemonInfo(i) {
