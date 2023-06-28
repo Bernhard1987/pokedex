@@ -137,8 +137,8 @@
      border: 2px solid rgba(255, 255, 255, 0.65);
  }
 
- #showPokemon img {
-     width: 170px;
+ .spriteImage {
+     width: 180px;
  }
 
  #showPokemonBackground {

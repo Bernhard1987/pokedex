@@ -91,22 +91,15 @@ function generateSprites() {
     let sprites = currentPokemon['sprites'];
 
     document.getElementById(`showPokemonImage`).innerHTML = `
-                <h3>Normal View</h3>
                 <div>
-                    <img src="" alt="Normal Front View" id="currentFront">
-                    <img src="" alt="Normal Back View" id="currentBack">
+                    <img src="${sprites['front_default']}" alt="Normal Front View" class="spriteImage">
+                    <img src="${sprites['back_default']}" alt="Normal Back View" class="spriteImage">
                 </div>
-                <h3>Shiny View</h3>
                 <div>
-                    <img src="" alt="Shiny Front View" id="currentFrontShiny">
-                    <img src="" alt="Shiny Back View" id="currentBackShiny">
+                    <img src="${sprites['front_shiny']}" alt="Shiny Front View" class="spriteImage">
+                    <img src="${sprites['back_shiny']}" alt="Shiny Back View" class="spriteImage">
                 </div>
     `;
-
-    document.getElementById('currentFront').src = sprites['front_default'];
-    document.getElementById('currentBack').src = sprites['back_default'];
-    document.getElementById('currentFrontShiny').src = sprites['front_shiny'];
-    document.getElementById('currentBackShiny').src = sprites['back_shiny'];
 }
 
 function generateStats() {
