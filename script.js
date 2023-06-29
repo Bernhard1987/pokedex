@@ -59,8 +59,8 @@ function renderPokemonInfo(i) {
             </div>
             <div class="statsContainer">
                 <div class="statSelector">
-                    <div class="pokemonType showPokemonButton">base</div>
-                    <div class="pokemonType showPokemonButton">stats</div>
+                    <div class="pokemonType showPokemonButton" onclick="generateBase()">base</div>
+                    <div class="pokemonType showPokemonButton" onclick="generateStats()">stats</div>
                     <div class="pokemonType showPokemonButton">moves</div>
                 </div>
                 <div class="stats" id="stats">
@@ -68,7 +68,7 @@ function renderPokemonInfo(i) {
             </div>
     `;
     generateOriginal('default');
-    generateStats();
+    generateBase();
     document.getElementById('showPokemonBackground').classList.remove('dnone');
 }
 
@@ -99,6 +99,23 @@ function generateSprites() {
                     <img src="${sprites['back_shiny']}" alt="Shiny Back View" class="spriteImage">
                 </div>
     `;
+}
+
+function generateBase() {
+    let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), currentPokemon['id'], Number(currentPokemon['weight'])];
+    let keys = ['Base Experience', 'Height', 'ID', 'Weight'];
+
+    document.getElementById('stats').innerHTML = '';
+
+    for (let i = 0; i < baseStats.length; i++) {
+        const statusType = baseStats[i];
+        document.getElementById('stats').innerHTML += `
+                <div class="oneStat">
+                    <div>${keys[i]}:</div>
+                    <div>${statusType}</div>
+                </div>
+                `;
+    }
 }
 
 function generateStats() {
