@@ -243,10 +243,12 @@
      flex-direction: column;
      justify-content: space-between;
      align-items: center;
-     background-color: #666;
+     background-image: 
+    linear-gradient(to right in oklab, oklch(25% 0.00 340) 0%, oklch(95% 0.00 200) 50%, oklch(25% 0.00 340) 100%);
      width: inherit;
-     height: 340px;
+     height: 314px;
      border-radius: 16px;
+     border-top: 2px solid rgba(255, 255, 255, 0.5);
      padding: inherit;
  }
 
@@ -262,7 +264,7 @@
      flex-direction: column;
      justify-content: center;
      border-radius: 16px;
-     background-color: rgba(0, 0, 0, 0.5);
+     background-color: rgba(0, 0, 0, 0.8);
      width: inherit;
      height: 260px;
      font-size: 24px;
