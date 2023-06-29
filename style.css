@@ -280,6 +280,24 @@
     overflow-y: scroll;
  }
 
+ .movesContainer::-webkit-scrollbar {
+    width: 12px;
+ }
+
+ .movesContainer::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 6px;
+ }
+
+ .movesContainer::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+ }
+
+ movesContainer::-webkit-scrollbar-thumb:hover {
+    background: #777;
+ }
+
  .movesButton {
     width: auto !important;
     padding-left: 4px;
