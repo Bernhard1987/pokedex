@@ -61,7 +61,7 @@ function renderPokemonInfo(i) {
                 <div class="statSelector">
                     <div class="pokemonType showPokemonButton" onclick="generateBase()">base</div>
                     <div class="pokemonType showPokemonButton" onclick="generateStats()">stats</div>
-                    <div class="pokemonType showPokemonButton">moves</div>
+                    <div class="pokemonType showPokemonButton" onclick="generateMoves()">moves</div>
                 </div>
                 <div class="stats" id="stats">
             </div>
@@ -116,6 +116,22 @@ function generateBase() {
                 </div>
                 `;
     }
+}
+
+function generateMoves() {
+    let moves = currentPokemon['moves'];
+    document.getElementById('stats').innerHTML = '<div id="movesContainer" class="statSelector movesContainer"></div>';
+
+    for (let i = 0; i < moves.length; i++) {
+        const move = moves[i]['move']['name'];
+        document.getElementById('movesContainer').innerHTML += `
+            <div class="pokemonType showPokemonButton movesButton">
+                ${move}
+            </div>
+        `;
+        
+    }
+
 }
 
 function generateStats() {

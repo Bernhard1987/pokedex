@@ -273,6 +273,22 @@
      padding-bottom: 12px;
  }
 
+ .movesContainer {
+    flex-wrap: wrap;
+    overflow-y: scroll;
+ }
+
+ .movesButton {
+    width: auto !important;
+    padding-left: 4px;
+    padding-right: 4px;
+ }
+
+ .movesButton:hover {
+    cursor: default !important;
+    background-color: #222 !important;
+ }
+
  .oneStat {
      display: flex;
      justify-content: space-between;
