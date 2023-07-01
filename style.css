@@ -165,17 +165,18 @@
      flex-direction: column;
      justify-content: space-between;
      align-items: center;
-     min-height: 50dvh;
+     height: 810px;
      width: 400px;
      z-index: 2;
      background-image: linear-gradient(0deg, #2e2e2e 0%, #000 100% 89%);
      padding: 8px 8px 0px 8px;
      border-radius: 16px;
      border: 2px solid rgba(255, 255, 255, 0.65);
- }
-
- .spriteImage {
-     width: 180px;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     margin-top: -405px;
+    margin-left: -200px;
  }
 
  #showPokemonBackground {
@@ -191,6 +192,10 @@
      background-color: rgba(0, 0, 0, 0.5);
      backdrop-filter: blur(5px);
  }
+
+ .spriteImage {
+    width: 180px;
+}
 
  .showPokemonHeadline {
      display: flex;
@@ -312,6 +317,14 @@
  .oneStat {
      display: flex;
      justify-content: space-between;
+ }
+
+ .lastPokemon .nextPokemon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    background-color: red;
  }
 
  @media (max-width: 1120px) {

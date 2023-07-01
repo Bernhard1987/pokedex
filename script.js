@@ -70,6 +70,7 @@ function renderPokemonInfo(i) {
     generateOriginal('default');
     generateBase();
     document.getElementById('showPokemonBackground').classList.remove('dnone');
+    document.getElementById('showPokemon').classList.remove('dnone');
 }
 
 function generateOriginal(selector) {
@@ -153,4 +154,5 @@ function generateStats() {
 
 function hidePokemon() {
     document.getElementById('showPokemonBackground').classList.add('dnone');
+    document.getElementById('showPokemon').classList.add('dnone');
 }
