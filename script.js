@@ -1,8 +1,10 @@
 let currentPokemon;
+let pokemonCount = 151;
+let pokemonCardElementIds = ['showPokemonBackground', 'showPokemon', 'lastPokemon', 'nextPokemon', 'closePokemon'];
 
 async function renderPokemonList() {
     document.getElementById('pokemonList').innerHTML = '';
-    for (let i = 1; i < 152; i++) {
+    for (let i = 1; i <= pokemonCount; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
@@ -42,6 +44,27 @@ async function loadPokemon(i) {
     renderPokemonInfo(i);
 }
 
+function loadNextPokemon() {
+    let currentId = currentPokemon['id'];
+    currentId++;
+    if (currentId > pokemonCount) {
+        loadPokemon(1);
+    } else {
+        loadPokemon(currentId);
+    }
+}
+
+function loadLastPokemon() {
+    let currentId = currentPokemon['id'];
+    currentId--;
+    if (currentId < 1) {
+        loadPokemon(pokemonCount);
+    } else {
+        loadPokemon(currentId);
+    }
+
+}
+
 function renderPokemonInfo(i) {
     let name = currentPokemon['name'];
     document.getElementById('showPokemon').innerHTML = '';
@@ -69,7 +92,7 @@ function renderPokemonInfo(i) {
     `;
     generateOriginal('default');
     generateBase();
-    togglePokemon();
+    showPokemonCard();
 }
 
 function generateOriginal(selector) {
@@ -129,7 +152,7 @@ function generateMoves() {
                 ${move}
             </div>
         `;
-        
+
     }
 
 }
@@ -152,13 +175,23 @@ function generateStats() {
 }
 
 function togglePokemon() {
-    toggleDNone('showPokemonBackground');
-    toggleDNone('showPokemon');
-    toggleDNone('lastPokemon');
-    toggleDNone('nextPokemon');
-    toggleDNone('closePokemon');
+    for (let i = 0; i < pokemonCardElementIds.length; i++) {
+        const id = pokemonCardElementIds[i];
+        toggleDNone(id);
+    }
+}
+
+function showPokemonCard() {
+    for (let i = 0; i < pokemonCardElementIds.length; i++) {
+        const id = pokemonCardElementIds[i];
+        removeDNone(id);
+    }
 }
 
 function toggleDNone(id) {
-  document.getElementById(id).classList.toggle('dnone');
+    document.getElementById(id).classList.toggle('dnone');
+}
+
+function removeDNone(id) {
+    document.getElementById(id).classList.remove('dnone');
 }

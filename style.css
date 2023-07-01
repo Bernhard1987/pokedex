@@ -67,6 +67,10 @@
      text-indent: 4px;
  }
 
+ header input::placeholder {
+    font-size: 14px;
+ }
+
  footer {
      display: flex;
      justify-content: space-between;
@@ -269,6 +273,7 @@
      flex-direction: column;
      justify-content: center;
      border-radius: 16px;
+     border-top: 2px solid rgba(255, 255, 255, 0.5);
      background-color: rgba(0, 0, 0, 0.8);
      width: inherit;
      height: 260px;
@@ -299,7 +304,7 @@
     border-radius: 6px;
  }
 
- movesContainer::-webkit-scrollbar-thumb:hover {
+ .movesContainer::-webkit-scrollbar-thumb:hover {
     background: #777;
  }
 
