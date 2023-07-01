@@ -69,8 +69,7 @@ function renderPokemonInfo(i) {
     `;
     generateOriginal('default');
     generateBase();
-    document.getElementById('showPokemonBackground').classList.remove('dnone');
-    document.getElementById('showPokemon').classList.remove('dnone');
+    togglePokemon();
 }
 
 function generateOriginal(selector) {
@@ -152,7 +151,14 @@ function generateStats() {
     console.log(stats);
 }
 
-function hidePokemon() {
-    document.getElementById('showPokemonBackground').classList.add('dnone');
-    document.getElementById('showPokemon').classList.add('dnone');
+function togglePokemon() {
+    toggleDNone('showPokemonBackground');
+    toggleDNone('showPokemon');
+    toggleDNone('lastPokemon');
+    toggleDNone('nextPokemon');
+    toggleDNone('closePokemon');
+}
+
+function toggleDNone(id) {
+  document.getElementById(id).classList.toggle('dnone');
 }

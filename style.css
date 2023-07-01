@@ -319,12 +319,39 @@
      justify-content: space-between;
  }
 
- .lastPokemon .nextPokemon {
-    position: absolute;
+ .cardPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     width: 40px;
     height: 40px;
-    top: 50%;
-    background-color: red;
+    top: 50dvh;
+    left: 50%;
+    background-color: #eeeeee;
+    z-index: 3;
+    border-radius: 50%;
+ }
+
+.cardPanel:hover {
+    cursor: pointer;
+}
+
+ .cardPanel img {
+    width: 28px;
+ }
+
+ .lastPokemon {
+    margin-left: -248px;
+ }
+
+ .nextPokemon {
+    margin-left: 228px;
+ }
+
+ .closePokemon {
+    margin-left: -10px;
+    margin-top: -452px;
  }
 
  @media (max-width: 1120px) {
