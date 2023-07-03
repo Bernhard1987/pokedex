@@ -67,6 +67,8 @@ function loadLastPokemon() {
 
 function renderPokemonInfo(i) {
     let name = currentPokemon['name'];
+    let firstPokemonType = currentPokemon['types'][0]['type']['name'];
+
     document.getElementById('showPokemon').innerHTML = '';
     document.getElementById('showPokemon').innerHTML += `
             <div class="showPokemonHeadline">
@@ -86,12 +88,14 @@ function renderPokemonInfo(i) {
                     <div class="pokemonType showPokemonButton" onclick="generateStats()">stats</div>
                     <div class="pokemonType showPokemonButton" onclick="generateMoves()">moves</div>
                 </div>
-                <div class="stats" id="stats">
-            </div>
+                <div class="stats" id="stats"></div>
+                <div id="showPokemonId"></div>
             </div>
     `;
+    document.getElementById('showPokemonImage').classList.add(`pokemonType${firstPokemonType}`);
     generateOriginalArtwork('default');
     generateBase();
+    addPokemonIdToCard();
     showPokemonCard();
 }
 
@@ -125,13 +129,16 @@ function generateSprites() {
 }
 
 function generateBase() {
-    let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), currentPokemon['id'], Number(currentPokemon['weight'])];
-    let keys = ['Base Experience', 'Height', 'ID', 'Weight'];
+    let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), Number(currentPokemon['weight'])];
+    let keys = ['Base Experience', 'Height', 'Weight'];
 
     document.getElementById('stats').innerHTML = '';
 
     for (let i = 0; i < baseStats.length; i++) {
-        const statusType = baseStats[i];
+        let statusType = baseStats[i];
+        let key = keys[i];
+
+        statusType = formatStatusType(key, statusType);
         document.getElementById('stats').innerHTML += `
                 <div class="oneStat">
                     <div>${keys[i]}:</div>
@@ -139,6 +146,22 @@ function generateBase() {
                 </div>
                 `;
     }
+}
+
+function formatStatusType(key, statusType) {
+    if (key == 'Base Experience') {
+        statusType = `${statusType} exp`;
+    }
+    if (key == 'Height' || key == 'Weight') {
+        statusType = statusType / 10;
+        statusType = Number(statusType).toFixed(2);
+        if (key == 'Height') {
+            statusType = `${statusType} m`;
+        } else {
+            statusType = `${statusType} kg`;
+        }
+    }
+    return statusType;
 }
 
 function generateMoves() {
@@ -152,9 +175,11 @@ function generateMoves() {
                 ${move}
             </div>
         `;
-
     }
+}
 
+function addPokemonIdToCard() {
+    document.getElementById('showPokemonId').innerHTML = `#${currentPokemon['id'].toString().padStart(4, '0')}`;
 }
 
 function generateStats() {
@@ -170,16 +195,14 @@ function generateStats() {
                 </div>
                 `;
     }
-
-    console.log(stats);
 }
 
-function togglePokemon() { // currently unused, might delete later
+function togglePokemon() {
     for (let i = 0; i < pokemonCardElementIds.length; i++) {
         const id = pokemonCardElementIds[i];
         toggleDNone(id);
     }
-} 
+}
 
 function showPokemonCard() {
     for (let i = 0; i < pokemonCardElementIds.length; i++) {

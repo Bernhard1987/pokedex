@@ -250,7 +250,9 @@
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     width: inherit;
+     width: 360px;
+     border: 2px solid rgba(255, 255, 255, 0.5);
+     border-radius: 8px;
      aspect-ratio: 1 / 1;
  }
 
@@ -272,6 +274,21 @@
      background-color: #434343;
  }
 
+ #showPokemonId {
+    display: flex;
+    justify-content: center;
+    font-family: 'Share Tech Mono';
+    font-size: 28px;
+    letter-spacing: 8px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-top: 2px solid rgba(255, 255, 255, 0.18);
+    width: inherit;
+    padding: inherit;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    border-radius: 0 0 16px 16px;
+ }
+
  .statsContainer {
      display: flex;
      flex-direction: column;
@@ -280,16 +297,18 @@
      background-image:
          linear-gradient(to right in oklab, oklch(25% 0.00 340) 0%, oklch(95% 0.00 200) 50%, oklch(25% 0.00 340) 100%);
      width: inherit;
-     height: 314px;
+     height: 340px;
      border-radius: 16px;
      border-top: 2px solid rgba(255, 255, 255, 0.5);
      padding: inherit;
+     padding-top: 4px;
  }
 
  .statSelector {
      display: flex;
      justify-content: center;
      width: inherit;
+     padding-bottom: 4px;
      gap: 8px;
  }
 
@@ -297,17 +316,16 @@
      display: flex;
      flex-direction: column;
      justify-content: center;
-     border-radius: 16px;
+     border-radius: 16px 16px 0 0;
      border-top: 2px solid rgba(255, 255, 255, 0.5);
-     background-color: rgba(0, 0, 0, 0.8);
+     background-color: rgba(0, 0, 0, 0.7);
      width: inherit;
      height: 260px;
      font-size: 24px;
      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
      text-transform: uppercase;
-     gap: 8px;
+     gap: 4px;
      padding: inherit;
-     padding-bottom: 12px;
  }
 
  .movesContainer {
