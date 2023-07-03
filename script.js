@@ -12,12 +12,12 @@ async function renderPokemonList() {
 
         document.getElementById('pokemonList').innerHTML += `
         <div class="pokemonListItem" onclick="loadPokemon(${i})">
-            <div class="pokemonListItemHeadline">
             <h3>${currentPokemon['name']}</h3>
-            <h3>#${i}</h3>
-            </div>
             <img src="${officialArtwork['front_default']}">
-            <div class="pokemonTypeContainer" id="pokemonType(${i})"></div>
+            <div class="pokemonListBottom">
+                <div class="pokemonListTypeContainer" id="pokemonType(${i})"></div>
+                <div class="pokemonListId">#${i.toString().padStart(4, '0')}</div>
+            </div>
         </div>`;
         renderPokemonTypes(i);
     }

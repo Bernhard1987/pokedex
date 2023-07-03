@@ -9,6 +9,17 @@
      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
  }
 
+ /* share-tech-mono-regular - latin */
+ @font-face {
+     font-display: swap;
+     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+     font-family: 'Share Tech Mono';
+     font-style: normal;
+     font-weight: 400;
+     src: url('./fonts/share-tech-mono-v15-latin-regular.woff2') format('woff2');
+     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+ }
+
  body {
      margin: 0;
      min-height: 100dvh;
@@ -68,7 +79,7 @@
  }
 
  header input::placeholder {
-    font-size: 14px;
+     font-size: 14px;
  }
 
  footer {
@@ -114,19 +125,13 @@
      justify-content: space-between;
      align-items: center;
      width: 160px;
-     height: 240px;
+     height: 280px;
      background-image: linear-gradient(0deg, #2e2e2e 0%, #000 100% 89%);
      padding: 12px;
+     padding-bottom: 0;
      border-radius: 8px;
      border: 2px solid rgba(255, 255, 255, 0.3);
      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
- }
-
- .pokemonListItemHeadline {
-     display: flex;
-     text-align: center;
-     width: 100%;
-     justify-content: space-between;
      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
  }
 
@@ -142,7 +147,28 @@
      transition-timing-function: ease;
  }
 
- .pokemonTypeContainer {
+ .pokemonListBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+ }
+
+ .pokemonListId {
+    display: flex;
+    justify-content: center;
+    font-family: 'Share Tech Mono';
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin-top: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: rgba(255, 255, 255, 0.85);
+    width: calc(100% + 24px);
+    background-color: rgba(0, 0, 0, 0.5);
+ }
+
+ .pokemonListTypeContainer {
      display: flex;
      width: inherit;
      justify-content: space-around;
@@ -180,7 +206,7 @@
      top: 50%;
      left: 50%;
      margin-top: -405px;
-    margin-left: -200px;
+     margin-left: -200px;
  }
 
  #showPokemonBackground {
@@ -198,8 +224,8 @@
  }
 
  .spriteImage {
-    width: 180px;
-}
+     width: 180px;
+ }
 
  .showPokemonHeadline {
      display: flex;
@@ -252,8 +278,8 @@
      flex-direction: column;
      justify-content: space-between;
      align-items: center;
-     background-image: 
-    linear-gradient(to right in oklab, oklch(25% 0.00 340) 0%, oklch(95% 0.00 200) 50%, oklch(25% 0.00 340) 100%);
+     background-image:
+         linear-gradient(to right in oklab, oklch(25% 0.00 340) 0%, oklch(95% 0.00 200) 50%, oklch(25% 0.00 340) 100%);
      width: inherit;
      height: 314px;
      border-radius: 16px;
@@ -286,37 +312,37 @@
  }
 
  .movesContainer {
-    flex-wrap: wrap;
-    overflow-y: scroll;
+     flex-wrap: wrap;
+     overflow-y: scroll;
  }
 
  .movesContainer::-webkit-scrollbar {
-    width: 12px;
+     width: 12px;
  }
 
  .movesContainer::-webkit-scrollbar-track {
-    background: #222;
-    border-radius: 6px;
+     background: #222;
+     border-radius: 6px;
  }
 
  .movesContainer::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 6px;
+     background: #555;
+     border-radius: 6px;
  }
 
  .movesContainer::-webkit-scrollbar-thumb:hover {
-    background: #777;
+     background: #777;
  }
 
  .movesButton {
-    width: auto !important;
-    padding-left: 4px;
-    padding-right: 4px;
+     width: auto !important;
+     padding-left: 4px;
+     padding-right: 4px;
  }
 
  .movesButton:hover {
-    cursor: default !important;
-    background-color: #222 !important;
+     cursor: default !important;
+     background-color: #222 !important;
  }
 
  .oneStat {
@@ -325,38 +351,38 @@
  }
 
  .cardPanel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    top: 50dvh;
-    left: 50%;
-    background-color: #eeeeee;
-    z-index: 3;
-    border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: fixed;
+     width: 40px;
+     height: 40px;
+     top: 50dvh;
+     left: 50%;
+     background-color: #eeeeee;
+     z-index: 3;
+     border-radius: 50%;
  }
 
-.cardPanel:hover {
-    cursor: pointer;
-}
+ .cardPanel:hover {
+     cursor: pointer;
+ }
 
  .cardPanel img {
-    width: 28px;
+     width: 28px;
  }
 
  .lastPokemon {
-    margin-left: -248px;
+     margin-left: -248px;
  }
 
  .nextPokemon {
-    margin-left: 228px;
+     margin-left: 228px;
  }
 
  .closePokemon {
-    margin-left: -10px;
-    margin-top: -452px;
+     margin-left: -10px;
+     margin-top: -452px;
  }
 
  @media (max-width: 1120px) {
