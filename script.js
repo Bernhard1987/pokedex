@@ -74,8 +74,8 @@ function renderPokemonInfo(i) {
                 <h3>#${i}</h3>
             </div>
             <div class="statSelector">
-                <div class="pokemonType showPokemonButton" onclick="generateOriginal('default')">default</div>
-                <div class="pokemonType showPokemonButton" onclick="generateOriginal('shiny')">shiny</div>
+                <div class="pokemonType showPokemonButton" onclick="generateOriginalArtwork('default')">default</div>
+                <div class="pokemonType showPokemonButton" onclick="generateOriginalArtwork('shiny')">shiny</div>
                 <div class="pokemonType showPokemonButton" onclick="generateSprites()">sprites</div>
             </div>
             <div class="showPokemonImage" id="showPokemonImage">
@@ -90,20 +90,20 @@ function renderPokemonInfo(i) {
             </div>
             </div>
     `;
-    generateOriginal('default');
+    generateOriginalArtwork('default');
     generateBase();
     showPokemonCard();
 }
 
-function generateOriginal(selector) {
+function generateOriginalArtwork(selector) {
     let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
 
     if (selector == 'shiny') {
-        document.getElementById(`showPokemonImage`).innerHTML = `
+        document.getElementById('showPokemonImage').innerHTML = `
                 <img src="${officialArtwork['front_shiny']}" class="showOriginalPokemonImage">
         `;
     } else if (selector == 'default') {
-        document.getElementById(`showPokemonImage`).innerHTML = `
+        document.getElementById('showPokemonImage').innerHTML = `
         <img src="${officialArtwork['front_default']}" class="showOriginalPokemonImage">
         `;
     }
@@ -174,12 +174,12 @@ function generateStats() {
     console.log(stats);
 }
 
-function togglePokemon() {
+function togglePokemon() { // currently unused, might delete later
     for (let i = 0; i < pokemonCardElementIds.length; i++) {
         const id = pokemonCardElementIds[i];
         toggleDNone(id);
     }
-}
+} 
 
 function showPokemonCard() {
     for (let i = 0; i < pokemonCardElementIds.length; i++) {
