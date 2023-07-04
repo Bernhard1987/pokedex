@@ -38,21 +38,28 @@ async function loadPokemon(i) {
 function loadNextPokemon(selector) {
     let currentId = currentPokemon['id'];
     if (selector == 'next') {
-        currentId++;
-        if (currentId > pokemonCount) {
-            loadPokemon(1);
-        } else {
-            loadPokemon(currentId);
-        }
+        loadNextPokemonNext(currentId);
     } else if (selector == 'last') {
-        currentId--;
-        if (currentId < 1) {
-            loadPokemon(pokemonCount);
-        } else {
-            loadPokemon(currentId);
-        }
+        loadNextPokemonLast(currentId);
     }
+}
 
+function loadNextPokemonNext(currentId) {
+    currentId++;
+    if (currentId > pokemonCount) {
+        loadPokemon(1);
+    } else {
+        loadPokemon(currentId);
+    }
+}
+
+function loadNextPokemonLast(currentId) {
+    currentId--;
+    if (currentId < 1) {
+        loadPokemon(pokemonCount);
+    } else {
+        loadPokemon(currentId);
+    }
 }
 
 function renderPokemonInfo(i) {
