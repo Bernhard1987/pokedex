@@ -1,3 +1,15 @@
+function generateHTMLForPokemonList(officialArtwork, i) {
+    document.getElementById('pokemonList').innerHTML += `
+    <div class="pokemonListItem" onclick="loadPokemon(${i})">
+        <h3>${currentPokemon['name']}</h3>
+        <img src="${officialArtwork['front_default']}">
+        <div class="pokemonListBottom">
+            <div class="pokemonListTypeContainer" id="pokemonTypeList(${i})"></div>
+            <div class="pokemonListId">#${i.toString().padStart(4, '0')}</div>
+        </div>
+    </div>`;
+}
+
 function generateHTMLForShowPokemon(name) {
     document.getElementById('showPokemon').innerHTML = '';
     document.getElementById('showPokemon').innerHTML += `
@@ -44,16 +56,4 @@ function generateHTMLForStats(name, stat) {
         <div>${stat}</div>
     </div>
     `;
-}
-
-function generateHTMLForPokemonList(officialArtwork, i) {
-    document.getElementById('pokemonList').innerHTML += `
-    <div class="pokemonListItem" onclick="loadPokemon(${i})">
-        <h3>${currentPokemon['name']}</h3>
-        <img src="${officialArtwork['front_default']}">
-        <div class="pokemonListBottom">
-            <div class="pokemonListTypeContainer" id="pokemonTypeList(${i})"></div>
-            <div class="pokemonListId">#${i.toString().padStart(4, '0')}</div>
-        </div>
-    </div>`;
 }

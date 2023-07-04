@@ -9,14 +9,41 @@ async function renderPokemonList() {
         let response = await fetch(url);
         currentPokemon = await response.json();
         let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
-        generateHTMLForPokemonList(officialArtwork, i)
+        generateHTMLForPokemonList(officialArtwork, i);
         renderPokemonTypes(i, 'List');
     }
 }
 
+function renderSearchOrList() {
+    let searchbar = document.getElementById('searchbar');
+    if (searchbar.value == '') {
+        renderPokemonList();
+    } else if (searchbar.value != '') {
+        filterPokemon(searchbar);
+    }
+}
+
+function filterPokemon(searchbar) {
+    let pokemonList = document.getElementById('pokemonList');
+    let search = searchbar.value;
+    search = search.toLowerCase();
+
+    pokemonList.innerHTML = '';
+
+    for (let i = 1; i <= pokemonCount; i++) {
+        const currentPokemonId = currentPokemon['id'];
+        if (currentPokemonId.toLowerCase().includes(search) | currentPokemon['name'].toLowerCase().includes(search)) {
+            generateHTMLForPokemonList(currentPokemon['sprites']['other']['official-artwork'], currentPokemonId);
+        }
+    }
+}
+
+// function pokemonTypeFilter() {
+
+// }
+
 function renderPokemonTypes(i, location) {
     let pokemonTypeList = currentPokemon['types'];
-
     for (let j = 0; j < pokemonTypeList.length; j++) {
         const type = pokemonTypeList[j]['type']['name'];
 
