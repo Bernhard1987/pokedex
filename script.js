@@ -9,16 +9,7 @@ async function renderPokemonList() {
         let response = await fetch(url);
         currentPokemon = await response.json();
         let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
-
-        document.getElementById('pokemonList').innerHTML += `
-        <div class="pokemonListItem" onclick="loadPokemon(${i})">
-            <h3>${currentPokemon['name']}</h3>
-            <img src="${officialArtwork['front_default']}">
-            <div class="pokemonListBottom">
-                <div class="pokemonListTypeContainer" id="pokemonType(${i})"></div>
-                <div class="pokemonListId">#${i.toString().padStart(4, '0')}</div>
-            </div>
-        </div>`;
+        generateHTMLForPokemonList(officialArtwork, i)
         renderPokemonTypes(i);
     }
 }
@@ -44,23 +35,22 @@ async function loadPokemon(i) {
     renderPokemonInfo(i);
 }
 
-function loadNextPokemon() {
+function loadNextPokemon(selector) {
     let currentId = currentPokemon['id'];
-    currentId++;
-    if (currentId > pokemonCount) {
-        loadPokemon(1);
-    } else {
-        loadPokemon(currentId);
-    }
-}
-
-function loadLastPokemon() {
-    let currentId = currentPokemon['id'];
-    currentId--;
-    if (currentId < 1) {
-        loadPokemon(pokemonCount);
-    } else {
-        loadPokemon(currentId);
+    if (selector == 'next') {
+        currentId++;
+        if (currentId > pokemonCount) {
+            loadPokemon(1);
+        } else {
+            loadPokemon(currentId);
+        }
+    } else if (selector == 'last') {
+        currentId--;
+        if (currentId < 1) {
+            loadPokemon(pokemonCount);
+        } else {
+            loadPokemon(currentId);
+        }
     }
 
 }
@@ -68,30 +58,7 @@ function loadLastPokemon() {
 function renderPokemonInfo(i) {
     let name = currentPokemon['name'];
     let firstPokemonType = currentPokemon['types'][0]['type']['name'];
-
-    document.getElementById('showPokemon').innerHTML = '';
-    document.getElementById('showPokemon').innerHTML += `
-            <div class="showPokemonHeadline">
-                <h3 id="name">${name}</h3>
-                <h3>#${i}</h3>
-            </div>
-            <div class="statSelector">
-                <div class="pokemonType showPokemonButton" onclick="generateOriginalArtwork('default')">default</div>
-                <div class="pokemonType showPokemonButton" onclick="generateOriginalArtwork('shiny')">shiny</div>
-                <div class="pokemonType showPokemonButton" onclick="generateSprites()">sprites</div>
-            </div>
-            <div class="showPokemonImage" id="showPokemonImage">
-            </div>
-            <div class="statsContainer">
-                <div class="statSelector">
-                    <div class="pokemonType showPokemonButton" onclick="generateBase()">base</div>
-                    <div class="pokemonType showPokemonButton" onclick="generateStats()">stats</div>
-                    <div class="pokemonType showPokemonButton" onclick="generateMoves()">moves</div>
-                </div>
-                <div class="stats" id="stats"></div>
-                <div id="showPokemonId"></div>
-            </div>
-    `;
+    generateHTMLForShowPokemon(name);
     document.getElementById('showPokemonImage').classList.add(`pokemonType${firstPokemonType}`);
     generateOriginalArtwork('default');
     generateBase();
@@ -113,21 +80,6 @@ function generateOriginalArtwork(selector) {
     }
 }
 
-function generateSprites() {
-    let sprites = currentPokemon['sprites'];
-
-    document.getElementById(`showPokemonImage`).innerHTML = `
-                <div>
-                    <img src="${sprites['front_default']}" alt="Normal Front View" class="spriteImage">
-                    <img src="${sprites['back_default']}" alt="Normal Back View" class="spriteImage">
-                </div>
-                <div>
-                    <img src="${sprites['front_shiny']}" alt="Shiny Front View" class="spriteImage">
-                    <img src="${sprites['back_shiny']}" alt="Shiny Back View" class="spriteImage">
-                </div>
-    `;
-}
-
 function generateBase() {
     let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), Number(currentPokemon['weight'])];
     let keys = ['Base Experience', 'Height', 'Weight'];
@@ -141,11 +93,26 @@ function generateBase() {
         statusType = formatStatusType(key, statusType);
         document.getElementById('stats').innerHTML += `
                 <div class="oneStat">
-                    <div>${keys[i]}:</div>
+                    <div>${key}:</div>
                     <div>${statusType}</div>
                 </div>
                 `;
     }
+}
+
+function generateHTMLSprites() {
+    let sprites = currentPokemon['sprites'];
+
+    document.getElementById(`showPokemonImage`).innerHTML = `
+                <div>
+                    <img src="${sprites['front_default']}" alt="Normal Front View" class="spriteImage">
+                    <img src="${sprites['back_default']}" alt="Normal Back View" class="spriteImage">
+                </div>
+                <div>
+                    <img src="${sprites['front_shiny']}" alt="Shiny Front View" class="spriteImage">
+                    <img src="${sprites['back_shiny']}" alt="Shiny Back View" class="spriteImage">
+                </div>
+    `;
 }
 
 function formatStatusType(key, statusType) {
@@ -188,12 +155,7 @@ function generateStats() {
 
     for (let i = 0; i < stats.length; i++) {
         const statusType = stats[i];
-        document.getElementById('stats').innerHTML += `
-                <div class="oneStat">
-                    <div>${statusType['stat']['name']}</div>
-                    <div>${statusType['base_stat']}</div>
-                </div>
-                `;
+        generateHTMLForStats(statusType);
     }
 }
 
