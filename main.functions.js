@@ -2,14 +2,18 @@ let currentPokemon;
 let pokemonCount = 151;
 let pokemonCardElementIds = ['showPokemonBackground', 'showPokemon', 'lastPokemon', 'nextPokemon', 'closePokemon'];
 
-async function renderPokemonList() {
+function renderPokemonList() {
     document.getElementById('pokemonList').innerHTML = '';
-    for (let i = 1; i <= pokemonCount; i++) {
+    let i;
+    fetchCurrentPokemon(i);
+}
+
+async function fetchCurrentPokemon(i) {
+    for (i = 1; i <= pokemonCount; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
-        let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
-        generateHTMLForPokemonList(officialArtwork, i);
+        generateHTMLForPokemonList(i);
         renderPokemonTypes(i, 'List');
     }
 }
@@ -31,19 +35,27 @@ function filterPokemon(searchbar) {
     pokemonList.innerHTML = '';
 
     for (let i = 1; i <= pokemonCount; i++) {
-        const currentPokemonId = currentPokemon['id'];
-        if (currentPokemonId.toLowerCase().includes(search) | currentPokemon['name'].toLowerCase().includes(search)) {
-            generateHTMLForPokemonList(currentPokemon['sprites']['other']['official-artwork'], currentPokemonId);
+        const currentPokemonId = i.toString();
+        if (currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search) || pokemonTypeFilter(currentPokemonId).includes(search)) {
+            generateHTMLForPokemonList(currentPokemonId);
         }
     }
 }
 
-// function pokemonTypeFilter() {
-
-// }
+function pokemonTypeFilter(currentPokemonId) {
+    let result = [];
+    for (let i = 0; i < currentPokemon['types'].length; i++) {
+        const type = currentPokemon['types'][i]['type']['name'];
+        result.push(type);
+    }
+    result = result.toString();
+    console.log(result);
+    return result;
+}
 
 function renderPokemonTypes(i, location) {
     let pokemonTypeList = currentPokemon['types'];
+    document.getElementById(`pokemonType${location}(${i})`).innerHTML = '';
     for (let j = 0; j < pokemonTypeList.length; j++) {
         const type = pokemonTypeList[j]['type']['name'];
 

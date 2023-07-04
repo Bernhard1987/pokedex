@@ -1,8 +1,11 @@
-function generateHTMLForPokemonList(officialArtwork, i) {
+function generateHTMLForPokemonList(i) {
+    let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
     document.getElementById('pokemonList').innerHTML += `
     <div class="pokemonListItem" onclick="loadPokemon(${i})">
         <h3>${currentPokemon['name']}</h3>
-        <img src="${officialArtwork['front_default']}">
+        <div class="pokemonListImageContainer">
+            <img src="${officialArtwork['front_default']}">
+        </div>
         <div class="pokemonListBottom">
             <div class="pokemonListTypeContainer" id="pokemonTypeList(${i})"></div>
             <div class="pokemonListId">#${i.toString().padStart(4, '0')}</div>

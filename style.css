@@ -135,8 +135,18 @@
      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
  }
 
- .pokemonListItem img {
+ .pokemonListImageContainer {
+     width: inherit;
+     background-image: url('./img/pokeball.png');
+     background-position: center;
+     background-size: contain;
+     background-repeat: no-repeat;
+     transform: scale(1.32);
+ }
+
+ .pokemonListImageContainer img {
      width: 160px;
+     transform: scale(0.8);
  }
 
  .pokemonListItem:hover {
@@ -148,23 +158,23 @@
  }
 
  .pokemonListBottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: inherit;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: inherit;
  }
 
  .pokemonListId {
-    display: flex;
-    justify-content: center;
-    font-family: 'Share Tech Mono';
-    font-size: 20px;
-    letter-spacing: 8px;
-    margin-top: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    width: calc(100% + 24px);
-    background-color: rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: center;
+     font-family: 'Share Tech Mono';
+     font-size: 20px;
+     letter-spacing: 8px;
+     margin-top: 8px;
+     padding-top: 4px;
+     padding-bottom: 4px;
+     width: calc(100% + 24px);
+     background-color: rgba(0, 0, 0, 0.5);
  }
 
  .pokemonListTypeContainer {
@@ -256,13 +266,21 @@
      aspect-ratio: 1 / 1;
  }
 
- .showPokemonImage div {
-     display: flex;
-     justify-content: center;
+ .showPokemonImageBackground {
+     background-image: url('./img/pokeball.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+     transform: scale(1.2);
  }
 
- .showPokemonImage h3 {
-     margin: 0;
+ .showPokemonImageBackground img {
+     transform: scale(0.85);
+ }
+
+ .showPokemonImageSprites {
+     display: flex;
+     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.3));
  }
 
  .showPokemonButton {
@@ -275,18 +293,18 @@
  }
 
  #showPokemonId {
-    display: flex;
-    justify-content: center;
-    font-family: 'Share Tech Mono';
-    font-size: 28px;
-    letter-spacing: 8px;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-top: 2px solid rgba(255, 255, 255, 0.18);
-    width: inherit;
-    padding: inherit;
-    padding-top: 4px;
-    padding-bottom: 2px;
-    border-radius: 0 0 16px 16px;
+     display: flex;
+     justify-content: center;
+     font-family: 'Share Tech Mono';
+     font-size: 28px;
+     letter-spacing: 8px;
+     background-color: rgba(0, 0, 0, 0.85);
+     border-top: 2px solid rgba(255, 255, 255, 0.18);
+     width: inherit;
+     padding: inherit;
+     padding-top: 4px;
+     padding-bottom: 2px;
+     border-radius: 0 0 16px 16px;
  }
 
  .statsContainer {
