@@ -10,17 +10,17 @@ async function renderPokemonList() {
         currentPokemon = await response.json();
         let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
         generateHTMLForPokemonList(officialArtwork, i)
-        renderPokemonTypes(i);
+        renderPokemonTypes(i, 'List');
     }
 }
 
-function renderPokemonTypes(i) {
+function renderPokemonTypes(i, location) {
     let pokemonTypeList = currentPokemon['types'];
 
     for (let j = 0; j < pokemonTypeList.length; j++) {
         const type = pokemonTypeList[j]['type']['name'];
 
-        document.getElementById(`pokemonType(${i})`).innerHTML += `
+        document.getElementById(`pokemonType${location}(${i})`).innerHTML += `
             <div class="pokemonType pokemonType${type}">
                 ${type}
             </div>
@@ -92,21 +92,12 @@ function formatStatusType(key, statusType) {
 function generateBase() {
     let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), Number(currentPokemon['weight'])];
     let keys = ['Base Experience', 'Height', 'Weight'];
+    let currentPokemonId = currentPokemon['id'];
 
     document.getElementById('stats').innerHTML = '';
-
-    for (let i = 0; i < baseStats.length; i++) {
-        let statusType = baseStats[i];
-        let key = keys[i];
-
-        statusType = formatStatusType(key, statusType);
-        document.getElementById('stats').innerHTML += `
-                <div class="oneStat">
-                    <div>${key}:</div>
-                    <div>${statusType}</div>
-                </div>
-                `;
-    }
+    generateHTMLAddTypesToBase(currentPokemonId);
+    renderPokemonTypes(currentPokemonId, 'Base');
+    generateHTMLBaseStats(baseStats, keys);
 }
 
 function generateStats() {
@@ -115,7 +106,7 @@ function generateStats() {
 
     for (let i = 0; i < stats.length; i++) {
         const statusType = stats[i];
-        generateHTMLForStats(statusType);
+        generateHTMLForStats(statusType['stat']['name'], statusType['base_stat']);
     }
 }
 
