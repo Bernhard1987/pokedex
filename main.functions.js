@@ -89,6 +89,36 @@ function formatStatusType(key, statusType) {
     return statusType;
 }
 
+function generateBase() {
+    let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), Number(currentPokemon['weight'])];
+    let keys = ['Base Experience', 'Height', 'Weight'];
+
+    document.getElementById('stats').innerHTML = '';
+
+    for (let i = 0; i < baseStats.length; i++) {
+        let statusType = baseStats[i];
+        let key = keys[i];
+
+        statusType = formatStatusType(key, statusType);
+        document.getElementById('stats').innerHTML += `
+                <div class="oneStat">
+                    <div>${key}:</div>
+                    <div>${statusType}</div>
+                </div>
+                `;
+    }
+}
+
+function generateStats() {
+    let stats = currentPokemon['stats'];
+    document.getElementById('stats').innerHTML = '';
+
+    for (let i = 0; i < stats.length; i++) {
+        const statusType = stats[i];
+        generateHTMLForStats(statusType);
+    }
+}
+
 function generateMoves() {
     let moves = currentPokemon['moves'];
     document.getElementById('stats').innerHTML = '<div id="movesContainer" class="statSelector movesContainer"></div>';
@@ -105,16 +135,6 @@ function generateMoves() {
 
 function addPokemonIdToCard() {
     document.getElementById('showPokemonId').innerHTML = `#${currentPokemon['id'].toString().padStart(4, '0')}`;
-}
-
-function generateStats() {
-    let stats = currentPokemon['stats'];
-    document.getElementById('stats').innerHTML = '';
-
-    for (let i = 0; i < stats.length; i++) {
-        const statusType = stats[i];
-        generateHTMLForStats(statusType);
-    }
 }
 
 function togglePokemon() {

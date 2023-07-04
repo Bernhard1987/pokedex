@@ -12,26 +12,6 @@ function generateOriginalArtwork(selector) {
     }
 }
 
-function generateBase() {
-    let baseStats = [currentPokemon['base_experience'], Number(currentPokemon['height']), Number(currentPokemon['weight'])];
-    let keys = ['Base Experience', 'Height', 'Weight'];
-
-    document.getElementById('stats').innerHTML = '';
-
-    for (let i = 0; i < baseStats.length; i++) {
-        let statusType = baseStats[i];
-        let key = keys[i];
-
-        statusType = formatStatusType(key, statusType);
-        document.getElementById('stats').innerHTML += `
-                <div class="oneStat">
-                    <div>${key}:</div>
-                    <div>${statusType}</div>
-                </div>
-                `;
-    }
-}
-
 function generateHTMLSprites() {
     let sprites = currentPokemon['sprites'];
 
