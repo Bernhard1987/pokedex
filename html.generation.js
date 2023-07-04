@@ -38,7 +38,10 @@ function generateHTMLForShowPokemon(name) {
 
 function generateHTMLAddTypesToBase(currentPokemonId) {
     document.getElementById('stats').innerHTML += `
-    <div class="pokemonListTypeContainer" id="pokemonTypeBase(${currentPokemonId})"></div>
+    <div class="pokemonTypeBaseContainer">
+        <div class ="pokemonTypeBase" id="pokemonTypeBase(${currentPokemonId})">
+        </div>
+    </div>
     `;
 }
 
