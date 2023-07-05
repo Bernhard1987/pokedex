@@ -153,6 +153,8 @@
  }
 
  .pokemonListImageContainer {
+    display: flex;
+    justify-content: center;
      width: inherit;
      background-image: url('./img/pokeball.png');
      background-position: center;
@@ -231,8 +233,7 @@
      position: fixed;
      top: 50%;
      left: 50%;
-     margin-top: -405px;
-     margin-left: -200px;
+    transform: translate(-50%, -50%);
  }
 
  #showPokemonBackground {
@@ -427,10 +428,13 @@
      background-color: #eeeeee;
      z-index: 3;
      border-radius: 50%;
+     opacity: 70%;
+     transition-duration: 0.2s;
  }
 
  .cardPanel:hover {
      cursor: pointer;
+     opacity: 85%;
  }
 
  .cardPanel img {
@@ -438,17 +442,28 @@
  }
 
  .lastPokemon {
-     margin-left: -248px;
+    transform: translate(-200px, 0);
+ }
+
+ .lastPokemon:hover {
+    transform: translate(-200px, 0) scale(1.2);
  }
 
  .nextPokemon {
-     margin-left: 228px;
+    transform: translate(160px, 0);
+ }
+
+ .nextPokemon:hover {
+    transform: translate(160px, 0) scale(1.2);
  }
 
  .closePokemon {
-     margin-left: -10px;
-     margin-top: -452px;
+     transform: translate(160px, -400px);
  }
+
+ .closePokemon:hover {
+    transform: translate(160px, -400px) scale(1.2);
+}
 
  @media (max-width: 1120px) {
      #pokemonList {
@@ -457,29 +472,56 @@
  }
 
  @media (max-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+
      footer {
          flex-direction: column;
          justify-content: center;
      }
 
+     .pokemonListImageContainer {
+        width: calc(100% / 1.32);
+     }
+
      #showPokemon {
-         width: 350px;
+         width: calc(100dvw - 36px);
+         height: calc(100dvh - 36px);
+         margin: 0;
+         left: 0;
+         top: 0;
+         padding: 4px;
+     }
+
+     .showPokemonImage {
+        width: calc(100% - 40px);
      }
 
      .pokemonListItem {
          width: 100%;
          min-width: 160px;
      }
+
+     .lastPokemon {
+        margin-left: 0;
+     }
+
+     .nextPokemon {
+        margin-left: 0;
+     }
  }
 
  @media (max-width: 420px) {
-     #showPokemon {
-         width: 300px;
+     .showPokemonImageBackground {
+        width: 100%;
+     }
+
+     .showOriginalPokemonImage {
+        width: 100% !important;
      }
  }
 
- @media (max-width: 360px) {
-     #showPokemon {
-         width: 250px;
-     }
- }
+ /* @media (max-width: 360px) {
+
+ } */

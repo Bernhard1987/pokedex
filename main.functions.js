@@ -114,7 +114,7 @@ function renderPokemonInfo(i) {
 
 function formatStatusType(key, statusType) {
     if (key == 'Base Experience') {
-        statusType = `${statusType} exp`;
+        statusType = `${statusType} xp`;
     }
     if (key == 'Height' || key == 'Weight') {
         statusType = statusType / 10;
