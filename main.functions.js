@@ -36,10 +36,18 @@ function filterPokemon(searchbar) {
 
     for (let i = 1; i <= pokemonCount; i++) {
         const currentPokemonId = i.toString();
+        fetchFilterPokemon(i);
         if (currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search) || pokemonTypeFilter(currentPokemonId).includes(search)) {
             generateHTMLForPokemonList(currentPokemonId);
         }
     }
+}
+
+async function fetchFilterPokemon(i) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    let response = await fetch(url);
+    currentPokemon = await response.json();
+    return currentPokemon;
 }
 
 function pokemonTypeFilter(currentPokemonId) {

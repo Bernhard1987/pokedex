@@ -161,11 +161,13 @@
      background-size: contain;
      background-repeat: no-repeat;
      transform: scale(1.32);
+     filter:drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
  }
 
  .pokemonListImageContainer img {
      width: 160px;
      transform: scale(0.8);
+     filter:drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
  }
 
  .pokemonListItem:hover {
@@ -290,10 +292,12 @@
      background-repeat: no-repeat;
      background-size: contain;
      transform: scale(1.2);
+     filter:drop-shadow(4px 4px 4px rgba(0,0,0,0.3));
  }
 
  .showPokemonImageBackground img {
      transform: scale(0.85);
+     filter:drop-shadow(4px 4px 4px rgba(0,0,0,0.3));
  }
 
  .showPokemonImageSprites {
