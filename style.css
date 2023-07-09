@@ -431,6 +431,9 @@
      z-index: 3;
      border-radius: 50%;
      opacity: 70%;
+     background-position: center;
+    background-size: 28px;
+    background-repeat: no-repeat;
      transition-duration: 0.2s;
  }
 
@@ -447,16 +450,19 @@
  .lastPokemon {
     left: 8px;
     top: calc(50% - 20px);
+    background-image: url('./img/arrow_back.png');
  }
 
  .nextPokemon {
     right: 8px;
     top: calc(50% - 20px);
+    background-image: url('./img/arrow_forward.png');
  }
 
  .closePokemon {
      top: 8px;
      right: 8px;
+     background-image: url('./img/close.png');
  }
 
  @media (max-width: 1120px) {
