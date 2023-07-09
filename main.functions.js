@@ -18,7 +18,7 @@ async function fetchCurrentPokemon(location, search) {
             generateHTMLForPokemonList(i);
             renderPokemonTypes(i, 'List');
         }
-        if (location == 'filterPokemon' && currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search)) {
+        if (location == 'filterPokemon' && currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search) || pokemonTypeFilter(currentPokemonId).includes(search)) {
             generateHTMLForPokemonList(i);
             renderPokemonTypes(i, 'List');
         }
@@ -43,7 +43,7 @@ async function filterPokemon(searchbar) {
     fetchCurrentPokemon('filterPokemon', search);
 }
 
-function pokemonTypeFilter(currentPokemonId) {
+function pokemonTypeFilter() {
     let result = [];
     for (let i = 0; i < currentPokemon['types'].length; i++) {
         const type = currentPokemon['types'][i]['type']['name'];
