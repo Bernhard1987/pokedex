@@ -424,11 +424,9 @@
      display: flex;
      justify-content: center;
      align-items: center;
-     position: fixed;
+     position: absolute;
      width: 40px;
      height: 40px;
-     top: 50dvh;
-     left: 50%;
      background-color: #eeeeee;
      z-index: 3;
      border-radius: 50%;
@@ -439,6 +437,7 @@
  .cardPanel:hover {
      cursor: pointer;
      opacity: 85%;
+     transform: scale(1.2);
  }
 
  .cardPanel img {
@@ -446,28 +445,19 @@
  }
 
  .lastPokemon {
-    transform: translate(-200px, 0);
- }
-
- .lastPokemon:hover {
-    transform: translate(-200px, 0) scale(1.2);
+    left: 8px;
+    top: calc(50% - 20px);
  }
 
  .nextPokemon {
-    transform: translate(160px, 0);
- }
-
- .nextPokemon:hover {
-    transform: translate(160px, 0) scale(1.2);
+    right: 8px;
+    top: calc(50% - 20px);
  }
 
  .closePokemon {
-     transform: translate(160px, -400px);
+     top: 8px;
+     right: 8px;
  }
-
- .closePokemon:hover {
-    transform: translate(160px, -400px) scale(1.2);
-}
 
  @media (max-width: 1120px) {
      #pokemonList {
