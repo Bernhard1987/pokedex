@@ -4,17 +4,25 @@ let pokemonCardElementIds = ['showPokemonBackground', 'showPokemon', 'lastPokemo
 
 function renderPokemonList() {
     document.getElementById('pokemonList').innerHTML = '';
-    let i;
-    fetchCurrentPokemon(i);
+    fetchCurrentPokemon('renderPokemonList');
 }
 
-async function fetchCurrentPokemon(i) {
-    for (i = 1; i <= pokemonCount; i++) {
+async function fetchCurrentPokemon(location, search) {
+    for (let i = 1; i <= pokemonCount; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
-        generateHTMLForPokemonList(i);
-        renderPokemonTypes(i, 'List');
+        let currentPokemonId = [];
+        currentPokemonId.push(i);
+        if (location == 'renderPokemonList') {
+            generateHTMLForPokemonList(i);
+            renderPokemonTypes(i, 'List');
+        }
+        if (location == 'filterPokemon' && currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search)) {
+            generateHTMLForPokemonList(i);
+            renderPokemonTypes(i, 'List');
+        }
+
     }
 }
 
@@ -27,27 +35,12 @@ function renderSearchOrList() {
     }
 }
 
-function filterPokemon(searchbar) {
+async function filterPokemon(searchbar) {
     let pokemonList = document.getElementById('pokemonList');
     let search = searchbar.value;
     search = search.toLowerCase();
-
     pokemonList.innerHTML = '';
-
-    for (let i = 1; i <= pokemonCount; i++) {
-        const currentPokemonId = i.toString();
-        fetchFilterPokemon(i);
-        if (currentPokemonId.includes(search) || currentPokemon['name'].toLowerCase().includes(search) || pokemonTypeFilter(currentPokemonId).includes(search)) {
-            generateHTMLForPokemonList(currentPokemonId);
-        }
-    }
-}
-
-async function fetchFilterPokemon(i) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    let response = await fetch(url);
-    currentPokemon = await response.json();
-    return currentPokemon;
+    fetchCurrentPokemon('filterPokemon', search);
 }
 
 function pokemonTypeFilter(currentPokemonId) {
@@ -57,7 +50,6 @@ function pokemonTypeFilter(currentPokemonId) {
         result.push(type);
     }
     result = result.toString();
-    console.log(result);
     return result;
 }
 
