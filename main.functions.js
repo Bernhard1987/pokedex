@@ -39,11 +39,10 @@ async function fetchCurrentPokemon(location, search) {
 }
 
 async function getPokemonCount() {
-    const url = `https://pokeapi.co/api/v2/pokemon/`;
+    const url = `https://pokeapi.co/api/v2/pokemon-species/`;
     let response = await fetch(url);
     let resource = await response.json();
     pokemonCount = resource['count'];
-    console.log(pokemonCount);
 }
 
 function renderSearchOrList() {
