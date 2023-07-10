@@ -1,14 +1,28 @@
 let currentPokemon;
-let pokemonCount = 151;
+let pokemonCount;
 let pokemonCardElementIds = ['showPokemonBackground', 'showPokemon', 'lastPokemon', 'nextPokemon', 'closePokemon'];
+const pokemonLoadInterval = 36;
+let loadPokemonFrom = 1;
+let loadPokemonTo = 36;
 
-function renderPokemonList() {
+// window.onscroll = triggerNextPokemon();
+
+function triggerNextPokemon() {
+    // if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+        loadPokemonFrom = loadPokemonFrom + pokemonLoadInterval;
+        loadPokemonTo = loadPokemonTo + pokemonLoadInterval;
+        fetchCurrentPokemon('renderPokemonList');
+    // }
+}
+
+async function renderPokemonList() {
     document.getElementById('pokemonList').innerHTML = '';
+    await getPokemonCount();
     fetchCurrentPokemon('renderPokemonList');
 }
 
 async function fetchCurrentPokemon(location, search) {
-    for (let i = 1; i <= pokemonCount; i++) {
+    for (let i = loadPokemonFrom; i <= loadPokemonTo; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
@@ -24,11 +38,21 @@ async function fetchCurrentPokemon(location, search) {
     }
 }
 
+async function getPokemonCount() {
+    const url = `https://pokeapi.co/api/v2/pokemon/`;
+    let response = await fetch(url);
+    let resource = await response.json();
+    pokemonCount = resource['count'];
+    console.log(pokemonCount);
+}
+
 function renderSearchOrList() {
     let searchbar = document.getElementById('searchbar');
     if (searchbar.value == '') {
         renderPokemonList();
     } else if (searchbar.value != '') {
+        loadPokemonFrom = 1;
+        loadPokemonTo = pokemonCount;
         filterPokemon(searchbar);
     }
 }
