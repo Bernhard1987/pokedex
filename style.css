@@ -110,6 +110,7 @@
      margin-top: 16px;
      box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
      backdrop-filter: blur(5px);
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
  }
 
  footer a {
@@ -120,6 +121,50 @@
  footer a:hover {
      cursor: pointer;
      text-decoration: underline;
+ }
+
+ footer div {
+     display: flex;
+     text-align: center;
+ }
+
+ .footerLeft, .footerRight {
+    width: 250px;
+    margin: 4px 0 4px 0;
+ }
+
+ .footerLeft {
+     justify-content: left;
+     order: 1;
+ }
+
+ .footerRight {
+     justify-content: right;
+     order: 3;
+ }
+
+ footer button {
+     font-family: 'Quicksand';
+     font-weight: bold;
+     color: white;
+     font-size: 16px;
+     background-color: transparent;
+     height: 40px;
+     width: 200px;
+     border: 2px solid rgba(255, 255, 255, 0.65);
+     border-radius: 20px;
+     padding: 8px;
+     margin: 12px 8px 8px 8px;
+     transition-duration: 0.2s;
+     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+     order: 2;
+ }
+
+ footer button:hover {
+     background-color: rgba(255, 255, 255, 0.15);
+     cursor: pointer;
+     transform: scale(1.05);
  }
 
  .dnone {
@@ -360,8 +405,7 @@
      height: 340px;
      border-radius: 16px;
      border-top: 2px solid rgba(255, 255, 255, 0.5);
-     padding: inherit;
-     padding-top: 4px;
+     padding: 4px 8px 0 8px;
  }
 
  .statSelector {
