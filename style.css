@@ -502,6 +502,11 @@
          width: calc(100% - 12px);
      }
 
+     #pokemonList {
+        margin-top: 96px;
+        margin-bottom: 96px;
+     }
+     
      .pokemonListItem {
          width: calc(100% - 40px);
          min-width: 160px;
@@ -530,7 +535,7 @@
      }
  }
 
- @media (max-height: 800px) {
+ @media (max-height: 820px) {
      #showPokemon {
          height: calc(100dvh - 36px);
          padding: 4px;
@@ -549,7 +554,7 @@
      }
  }
 
- @media (max-height: 720px) {
+ @media (max-height: 768px) {
      .showPokemonImage {
          aspect-ratio: 1 / 1;
          height: 25dvh;
