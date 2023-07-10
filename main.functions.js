@@ -12,8 +12,7 @@ async function fetchCurrentPokemon(location, search) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
-        let currentPokemonId = [];
-        currentPokemonId.push(i);
+        let currentPokemonId = i.toString();
         if (location == 'renderPokemonList') {
             generateHTMLForPokemonList(i);
             renderPokemonTypes(i, 'List');
