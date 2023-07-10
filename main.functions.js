@@ -1,6 +1,5 @@
 let currentPokemon;
 let pokemonCount;
-let pokemonCardElementIds = ['showPokemonBackground', 'showPokemon', 'lastPokemon', 'nextPokemon', 'closePokemon'];
 const pokemonLoadInterval = 36;
 let loadPokemonFrom = 1;
 let loadPokemonTo = 36;
@@ -137,28 +136,4 @@ function renderPokemonInfo() {
 
 function addPokemonIdToCard() {
     document.getElementById('showPokemonId').innerHTML = `#${currentPokemon['id'].toString().padStart(4, '0')}`;
-}
-
-function showPokemonCard(showOrClose) {
-    if (showOrClose == 'show') {
-        for (let i = 0; i < pokemonCardElementIds.length; i++) {
-            const id = pokemonCardElementIds[i];
-            toggleDNone(id, 'remove');
-        }
-    }
-    if (showOrClose == 'close') {
-        for (let i = 0; i < pokemonCardElementIds.length; i++) {
-            const id = pokemonCardElementIds[i];
-            toggleDNone(id, 'add');
-        }
-    }
-}
-
-function toggleDNone(id, addOrRemove) {
-    if (addOrRemove == 'add') {
-        document.getElementById(id).classList.add('dnone');
-    }
-    if (addOrRemove == 'remove') {
-        document.getElementById(id).classList.remove('dnone');
-    }
 }
