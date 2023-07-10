@@ -49,6 +49,8 @@ async function getPokemonCount() {
 function renderSearchOrList() {
     let searchbar = document.getElementById('searchbar');
     if (searchbar.value == '') {
+        loadPokemonFrom = 1;
+        loadPokemonTo = pokemonLoadInterval;
         renderPokemonList();
     } else if (searchbar.value != '') {
         loadPokemonFrom = 1;
