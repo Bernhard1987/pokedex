@@ -380,13 +380,17 @@
      border-radius: 16px 16px 0 0;
      border-top: 2px solid rgba(255, 255, 255, 0.5);
      background-color: rgba(0, 0, 0, 0.7);
-     width: inherit;
+     width: 384px;
      height: 260px;
      font-size: 24px;
      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
      text-transform: uppercase;
      gap: 4px;
-     padding: inherit;
+     padding: 8px 16px 8px 16px;
+ }
+
+ .statsAdditionalBase {
+    justify-content: space-between !important;
  }
 
  .movesContainer {
@@ -496,13 +500,17 @@
      #showPokemon {
          width: calc(100dvw - 36px);
          height: calc(100dvh - 36px);
-         padding: 4px;
+         padding: 4px 4px 0 4px;
      }
 
      .showPokemonImage {
          width: calc(100% - 12px);
      }
 
+     .stats {
+        width: inherit;
+        padding: 8px 4px 8px 4px;
+     }
      #pokemonList {
         margin-top: 96px;
         margin-bottom: 96px;
