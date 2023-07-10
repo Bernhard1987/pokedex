@@ -1,0 +1,115 @@
+@media (max-width: 1120px) {
+    #pokemonList {
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .pokemonListImageContainer {
+        width: calc(100% / 1.32);
+    }
+
+    #showPokemon {
+        width: calc(100dvw - 36px);
+        height: calc(100dvh - 36px);
+        padding: 4px 4px 0 4px;
+    }
+
+    .showPokemonImage {
+        width: calc(100% - 12px);
+    }
+
+    .stats {
+       width: inherit;
+       padding: 8px 4px 8px 4px;
+    }
+    #pokemonList {
+       margin-top: 96px;
+       margin-bottom: 96px;
+    }
+    
+    .pokemonListItem {
+        width: calc(100% - 40px);
+        min-width: 160px;
+    }
+
+    .pokemonListId {
+        width: calc(100% + 64px);
+    }
+
+    .lastPokemon {
+        margin-left: 0;
+    }
+
+    .nextPokemon {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .showPokemonImageBackground {
+        width: 100%;
+    }
+
+    .showOriginalPokemonImage {
+        width: 100% !important;
+    }
+}
+
+@media (max-height: 820px) {
+    #showPokemon {
+        height: calc(100dvh - 36px);
+        padding: 4px;
+    }
+
+    .showPokemonImage {
+        width: calc(100% - 60px);
+    }
+
+    .showPokemonImageBackground {
+        transform: scale(1.1);
+    }
+
+    .showOriginalPokemonImage {
+        width: calc(100% - 80px) !important;
+    }
+}
+
+@media (max-height: 768px) {
+    .showPokemonImage {
+        aspect-ratio: 1 / 1;
+        height: 25dvh;
+        overflow: hidden;
+    }
+
+    .showPokemonImageBackground {
+        width: inherit;
+        transform: scale(1);
+    }
+
+    .showPokemonImageBackground img {
+        width: inherit;
+    }
+
+    .statsContainer {
+        height: auto;
+        min-height: 200px;
+        max-height: 50%;
+    }
+
+    .stats {
+        font-size: 20px;
+        height: auto;
+        min-height: 180px;
+        max-height: 260px;
+    }
+}
