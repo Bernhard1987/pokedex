@@ -70,7 +70,7 @@ async function loadPokemon(i) {
     let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
-    renderPokemonInfo(i);
+    renderPokemonInfo();
 }
 
 function loadNextPokemon(selector) {
@@ -100,7 +100,7 @@ function loadNextPokemonLast(currentId) {
     }
 }
 
-function renderPokemonInfo(i) {
+function renderPokemonInfo() {
     let name = currentPokemon['name'];
     let firstPokemonType = currentPokemon['types'][0]['type']['name'];
     generateHTMLForShowPokemon(name);

@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="types.css">
+    <link rel="shortcut icon" href="./img/pokeball_colored.svg" type="image/x-icon">
 </head>
 
 <body onload="renderPokemonList()">
@@ -16,7 +17,7 @@
             <h1>Pokédex</h1>
             <h3>First Gen</h3>
         </div>
-        <input type="search" placeholder="search for id, name, type..." id="searchbar" onkeydown="renderSearchOrList()">
+        <input type="search" placeholder="search for id, name, type..." id="searchbar" onkeyup="renderSearchOrList()">
     </header>
     <div id="pokemonList">
     </div>
