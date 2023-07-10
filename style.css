@@ -130,7 +130,8 @@
      display: flex;
      justify-content: center;
      gap: 16px;
-     max-width: 1410px;
+     max-width: 1450px;
+     padding: 0 40px 0 40px;
      flex-wrap: wrap;
      margin-top: 72px;
      margin-bottom: 72px;
@@ -468,7 +469,7 @@
 
  @media (max-width: 1120px) {
      #pokemonList {
-         max-width: calc(100% - 40px);
+         padding: 0 20px 0 20px;
      }
  }
 
@@ -489,18 +490,15 @@
      #showPokemon {
          width: calc(100dvw - 36px);
          height: calc(100dvh - 36px);
-         margin: 0;
-         left: 0;
-         top: 0;
          padding: 4px;
      }
 
      .showPokemonImage {
-        width: calc(100% - 40px);
+        width: calc(100% - 12px);
      }
 
      .pokemonListItem {
-         width: 100%;
+         width: calc(100% - 40px);
          min-width: 160px;
      }
 

@@ -22,7 +22,6 @@ async function fetchCurrentPokemon(location, search) {
             generateHTMLForPokemonList(i);
             renderPokemonTypes(i, 'List');
         }
-
     }
 }
 
