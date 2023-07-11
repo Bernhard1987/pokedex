@@ -4,14 +4,10 @@ const pokemonLoadInterval = 36;
 let loadPokemonFrom = 1;
 let loadPokemonTo = 36;
 
-// window.onscroll = triggerNextPokemon();
-
 function triggerNextPokemon() {
-    // if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
     loadPokemonFrom = loadPokemonFrom + pokemonLoadInterval;
     loadPokemonTo = loadPokemonTo + pokemonLoadInterval;
     fetchCurrentPokemon('renderPokemonList');
-    // }
 }
 
 async function renderPokemonList() {
@@ -131,7 +127,7 @@ function renderPokemonInfo() {
     generateOriginalArtwork('default');
     generateBase();
     addPokemonIdToCard();
-    showPokemonCard('show');
+    showPokemonCard('remove');
 }
 
 function addPokemonIdToCard() {

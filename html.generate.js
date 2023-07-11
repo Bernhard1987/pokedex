@@ -37,7 +37,7 @@ function generateHTMLForShowPokemon(name) {
                 </div>
                 <div class="cardPanel nextPokemon dnone" id="nextPokemon" onclick="loadNextPokemon('next')">
                 </div>
-                <div class="cardPanel closePokemon dnone" id="closePokemon" onclick="showPokemonCard('close')">
+                <div class="cardPanel closePokemon dnone" id="closePokemon" onclick="showPokemonCard('add')">
                 </div>
     `;
 }

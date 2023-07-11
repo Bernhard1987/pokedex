@@ -1,24 +1,14 @@
 function generateOriginalArtwork(selector) {
     let officialArtwork = currentPokemon['sprites']['other']['official-artwork'];
-
-    if (selector == 'shiny') {
-        document.getElementById('showPokemonImage').innerHTML = `
+    document.getElementById('showPokemonImage').innerHTML = `
         <div class="showPokemonImageBackground">
-            <img src="${officialArtwork['front_shiny']}" class="showOriginalPokemonImage">
+            <img src="${officialArtwork[`front_${selector}`]}" class="showOriginalPokemonImage">
         </div>
         `;
-    } else if (selector == 'default') {
-        document.getElementById('showPokemonImage').innerHTML = `
-        <div class="showPokemonImageBackground">
-            <img src="${officialArtwork['front_default']}" class="showOriginalPokemonImage">
-        </div>
-        `;
-    }
 }
 
 function generateHTMLSprites() {
     let sprites = currentPokemon['sprites'];
-
     document.getElementById(`showPokemonImage`).innerHTML = `
         <div class="showPokemonImageBackground">
                 <div class="showPokemonImageSprites">
