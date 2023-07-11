@@ -63,8 +63,8 @@
     }
 
     .stats {
-        width: inherit;
-        padding: inherit;
+        width: calc(100% - 8px);
+        padding: 8px;
     }
 
     #pokemonList {
